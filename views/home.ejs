@@ -1,0 +1,46 @@
+<%- include('partials/header') -%>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>DoIT - Just do it!</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h3>Task Manager</h3>
+     
+    <table class="table table-dark mt-3">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">When</th>
+                <th scope="col">Task Name</th>
+                <th scope="col">Priority</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% dados.forEach(function(dados) { %>
+            <tr>
+                    <td><%= dados.id %></td>
+                    <td><%= dados.when %></td>
+                    <td><%= dados.TaskName %></td>
+                    <% if( dados.Priority == 1){ %>
+                        <td class="high">High</td>
+                    <% }if(dados.Priority == 2){ %>
+                        <td class="medium">Medium</td>
+                    <% }if(dados.Priority == 3){ %>
+                        <td class="low">Low</td>
+                    <% } %>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+
+    
+</div>
+<%- include('partials/footer'); -%>
+
