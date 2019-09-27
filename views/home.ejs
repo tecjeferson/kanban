@@ -10,37 +10,62 @@
 </div>
 
 <div class="container mt-5">
-    <h3>Task Manager</h3>
-     
-    <table class="table table-dark mt-3">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">When</th>
-                <th scope="col">Task Name</th>
-                <th scope="col">Priority</th>
-            </tr>
-        </thead>
-        <tbody>
+
+    <div class="row mt-3">
+        <div class="col-lg-3">
+            <h3>Today</h3>
+
+
             <% dados.forEach(function(dados) { %>
-            <tr>
-                    <td><%= dados.id %></td>
-                    <td><%= dados.when %></td>
-                    <td><%= dados.TaskName %></td>
-                    <% if( dados.Priority == 1){ %>
-                        <td class="high">High</td>
-                    <% }if(dados.Priority == 2){ %>
-                        <td class="medium">Medium</td>
-                    <% }if(dados.Priority == 3){ %>
-                        <td class="low">Low</td>
-                    <% } %>
-            </tr>
+
+            <% if(dados.Priority == 1){ %>
+            <div class="shadow-sm p-3 mb-1 table-primary rounded">
+                <td><%= dados.TaskName %></td>
+            </div>
+            <% }if(dados.Priority == 2){ %>
+            <div class="shadow-sm p-3 mb-1 table-warning rounded">
+                <td><%= dados.TaskName %></td>
+            </div>
+            <% }if(dados.Priority == 3){ %>
+            <div class="shadow-sm p-3 mb-1 table-danger rounded">
+                <td><%= dados.TaskName %></td>
+            </div>
+            <% } %>
+
             <% }); %>
-        </tbody>
-    </table>
+
+            <button class="btn btn-light">Add Task</button>
+        </div>
+
+        <div class="col-lg-3">
+            <h3>Tomorrow</h3>
 
 
-    
+            <% dados.forEach(function(dados) { %>
+
+            <% if(dados.Priority == 1){ %>
+            <div class="shadow-sm p-3 mb-1 table-primary rounded mask flex-center">
+                <td><%= dados.TaskName %></td>
+            </div>
+            <% }if(dados.Priority == 2){ %>
+            <div class="shadow-sm p-3 mb-1 table-warning rounded">
+                <td><%= dados.TaskName %></td>
+            </div>
+            <% }if(dados.Priority == 3){ %>
+            <div class="shadow-sm p-3 mb-1 table-danger rounded">
+                <td><%= dados.TaskName %></td>
+            </div>
+            <% } %>
+
+            <% }); %>
+
+
+        </div>
+    </div>
+
+
+
+
+
 </div>
 <%- include('partials/footer'); -%>
-
