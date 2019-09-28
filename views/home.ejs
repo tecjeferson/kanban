@@ -1,13 +1,6 @@
 <%- include('partials/header') -%>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>DoIT - Just do it!</h1>
-        </div>
-    </div>
-</div>
 
 <div class="container mt-5">
 
@@ -19,22 +12,53 @@
             <% dados.forEach(function(dados) { %>
 
             <% if(dados.Priority == 1){ %>
-            <div class="shadow-sm p-3 mb-1 table-primary rounded">
-                <td><%= dados.TaskName %></td>
+
+            <div class="shadow-sm p-3 mb-2 table-primary rounded">
+                <td>
+
+                    <%= dados.TaskName %>
+                </td>
+                <div class="row">
+                    <div class="col">
+                        <i id="icons" class="material-icons">
+                            more edit delete_forever
+                        </i>
+                    </div>
+                </div>
+
             </div>
             <% }if(dados.Priority == 2){ %>
-            <div class="shadow-sm p-3 mb-1 table-warning rounded">
-                <td><%= dados.TaskName %></td>
+            <div class="shadow-sm p-3 mb-2 table-warning rounded">
+                <td>
+                    <%= dados.TaskName %>
+                    <div class="row">
+                        <div class="col">
+                            <i id="icons" class="material-icons">
+                                more edit delete_forever
+                            </i>
+                        </div>
+                    </div>
+                </td>
             </div>
             <% }if(dados.Priority == 3){ %>
-            <div class="shadow-sm p-3 mb-1 table-danger rounded">
-                <td><%= dados.TaskName %></td>
+            <div class="shadow-sm p-3 mb-2 table-danger rounded">
+                <td>
+                    <%= dados.TaskName %>
+                    <div class="row">
+                        <div class="col">
+                            <i id="icons" class="material-icons">
+                                more edit delete_forever
+                            </i>
+                        </div>
+                    </div>
+
+                </td>
             </div>
             <% } %>
 
             <% }); %>
 
-            <button class="btn btn-light">Add Task</button>
+
         </div>
 
         <div class="col-lg-3">
@@ -44,16 +68,47 @@
             <% dados.forEach(function(dados) { %>
 
             <% if(dados.Priority == 1){ %>
-            <div class="shadow-sm p-3 mb-1 table-primary rounded mask flex-center">
-                <td><%= dados.TaskName %></td>
+
+            <div class="shadow-sm p-3 mb-2 table-primary rounded">
+                <td>
+
+                    <%= dados.TaskName %>
+                </td>
+                <div class="row">
+                    <div class="col">
+                        <i id="icons" class="material-icons">
+                            more edit delete_forever
+                        </i>
+                    </div>
+                </div>
+
             </div>
             <% }if(dados.Priority == 2){ %>
-            <div class="shadow-sm p-3 mb-1 table-warning rounded">
-                <td><%= dados.TaskName %></td>
+            <div class="shadow-sm p-3 mb-2 table-warning rounded">
+                <td>
+                    <%= dados.TaskName %>
+                    <div class="row">
+                        <div class="col">
+                            <i id="icons" class="material-icons">
+                                more edit delete_forever
+                            </i>
+                        </div>
+                    </div>
+                </td>
             </div>
             <% }if(dados.Priority == 3){ %>
-            <div class="shadow-sm p-3 mb-1 table-danger rounded">
-                <td><%= dados.TaskName %></td>
+            <div class="shadow-sm p-3 mb-2 table-danger rounded">
+                <td>
+                    <%= dados.TaskName %>
+                    <div class="row">
+                        <div class="col">
+                            <i id="icons" class="material-icons">
+                                more edit delete_forever
+                            </i>
+                        </div>
+                    </div>
+
+                </td>
             </div>
             <% } %>
 
