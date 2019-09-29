@@ -1,31 +1,28 @@
 <%- include('partials/header') -%>
-<div class="container mt-5">
+<div class="container">
+    <h1>Edit Task</h1>
+    <hr>
 
     <div class="row">
         <div class="col-lg-6">
-            <h3>Add Task</h3>
-            <hr>
-
 
             <form action="" method="POST">
                 <div class="form-group">
                     <label>Title:</label>
-                    <input type="text" name="Title" class="form-control">
+                    <input type="text" name="Title" class="form-control" value="<%=dados.Title %>">
 
                 </div>
-
-
                 <div class="form-group">
                     <label>Description:</label>
                     <textarea class="form-control" name="Description" id="exampleFormControlTextarea1"
-                        rows="3"></textarea>
+                        rows="3"><%= dados.Description %></textarea>
 
                 </div>
-
-
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Priority</label>
                     <select name="Priority" class="form-control" id="exampleFormControlSelect1">
+
+                        <option><%= dados.Priority %></option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -33,23 +30,15 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Status</label>
-                    <select name="Status" class="form-control" id="exampleFormControlSelect1">
+                    <select name="Status" class="form-control" id="exampleFormControlSelect1" value="">
+                        <option><%= dados.Status %></option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
                     </select>
                 </div>
-
                 <input type="submit" value="Save" class="btn btn-primary">
             </form>
-
-
-
-
-
-
-
-
         </div>
     </div>
 

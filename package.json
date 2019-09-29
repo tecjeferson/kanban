@@ -1,11 +1,15 @@
 {
   "dependencies": {
+    "cookie-parser": "^1.4.4",
     "dotenv": "^8.1.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.16.2",
     "mongoose": "^5.7.1",
     "next": "^9.0.6",
-    "node": "^12.11.0"
+    "node": "^12.11.0",
+    "slug": "^1.1.0"
   },
   "name": "kanban",
   "version": "1.0.0",

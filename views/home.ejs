@@ -4,10 +4,10 @@
 
 <div class="container mt-5">
 
-    <div class="row mt-3">
-        <div class="col-lg-3">
+    <div class="row mt-6">
+        <div class="col-lg-6">
             <h3>Today</h3>
-
+            <hr>
 
             <% dados.forEach(function(dados) { %>
 
@@ -16,12 +16,23 @@
             <div class="shadow-sm p-3 mb-2 table-primary rounded">
                 <td>
 
-                    <%= dados.TaskName %>
+                    <strong><%= dados.Title %></strong><br>
+                    <%= dados.Description %><br><br>
+                    <% if(dados.Status == 1){ %>
+                    <em>Status: Not initialized</em>
+
+                    <% } if(dados.Status == 2){ %>
+                    <em>Status: In progress</em>
+
+                    <% } if(dados.Status == 3){ %>
+                    <em>Status: On hold</em>
+                    <% } %>
                 </td>
                 <div class="row">
-                    <div class="col">
+                    <div class="col text-right">
                         <i id="icons" class="material-icons">
-                            more edit delete_forever
+                            <a href="/edit/<%= dados._id %>">edit</a>
+                            <a href="/delete/<%= dados._id %>">delete_forever</a>
                         </i>
                     </div>
                 </div>
@@ -30,11 +41,22 @@
             <% }if(dados.Priority == 2){ %>
             <div class="shadow-sm p-3 mb-2 table-warning rounded">
                 <td>
-                    <%= dados.TaskName %>
+                    <strong><%= dados.Title %></strong><br>
+                    <%= dados.Description %><br><br>
+                    <% if(dados.Status == 1){ %>
+                    <em>Status: Not initialized</em>
+
+                    <% } if(dados.Status == 2){ %>
+                    <em>Status: In progress</em>
+
+                    <% } if(dados.Status == 3){ %>
+                    <em>Status: On hold</em>
+                    <% } %>
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-right">
                             <i id="icons" class="material-icons">
-                                more edit delete_forever
+                                <a href="/edit/<%= dados._id %>">edit</a>
+                                <a href="/delete/<%= dados._id %>">delete_forever</a>
                             </i>
                         </div>
                     </div>
@@ -43,11 +65,22 @@
             <% }if(dados.Priority == 3){ %>
             <div class="shadow-sm p-3 mb-2 table-danger rounded">
                 <td>
-                    <%= dados.TaskName %>
+                    <strong><%= dados.Title %></strong><br>
+                    <%= dados.Description %><br><br>
+                    <% if(dados.Status == 1){ %>
+                    <em>Status: Not initialized</em>
+
+                    <% } if(dados.Status == 2){ %>
+                    <em>Status: In progress</em>
+
+                    <% } if(dados.Status == 3){ %>
+                    <em>Status: On hold</em>
+                    <% } %>
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-right">
                             <i id="icons" class="material-icons">
-                                more edit delete_forever
+                                <a href="/edit/<%= dados._id %>">edit</a>
+                                <a href="/delete/<%= dados._id %>">delete_forever</a>
                             </i>
                         </div>
                     </div>
@@ -61,62 +94,10 @@
 
         </div>
 
-        <div class="col-lg-3">
-            <h3>Tomorrow</h3>
 
 
-            <% dados.forEach(function(dados) { %>
-
-            <% if(dados.Priority == 1){ %>
-
-            <div class="shadow-sm p-3 mb-2 table-primary rounded">
-                <td>
-
-                    <%= dados.TaskName %>
-                </td>
-                <div class="row">
-                    <div class="col">
-                        <i id="icons" class="material-icons">
-                            more edit delete_forever
-                        </i>
-                    </div>
-                </div>
-
-            </div>
-            <% }if(dados.Priority == 2){ %>
-            <div class="shadow-sm p-3 mb-2 table-warning rounded">
-                <td>
-                    <%= dados.TaskName %>
-                    <div class="row">
-                        <div class="col">
-                            <i id="icons" class="material-icons">
-                                more edit delete_forever
-                            </i>
-                        </div>
-                    </div>
-                </td>
-            </div>
-            <% }if(dados.Priority == 3){ %>
-            <div class="shadow-sm p-3 mb-2 table-danger rounded">
-                <td>
-                    <%= dados.TaskName %>
-                    <div class="row">
-                        <div class="col">
-                            <i id="icons" class="material-icons">
-                                more edit delete_forever
-                            </i>
-                        </div>
-                    </div>
-
-                </td>
-            </div>
-            <% } %>
-
-            <% }); %>
-
-
-        </div>
     </div>
+</div>
 
 
 

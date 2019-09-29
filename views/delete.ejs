@@ -1,0 +1,77 @@
+<%- include('partials/header') -%>
+
+
+
+<div class="container mt-5">
+    <form action="" method="POST">
+        <div class="row mt-6">
+            <div class="col-lg-6">
+                <h3>Delete</h3>
+                <hr>
+                <h5>Are you sure to delete?</h5>
+                <% if(dados.Priority == 1){ %>
+
+                <div class="shadow-sm p-3 mb-2 table-primary rounded">
+                    <td>
+
+                        <strong><%= dados.Title %></strong><br>
+                        <%= dados.Description %><br><br>
+                        <% if(dados.Status == 1){ %>
+                        <em>Status: Not initialized</em>
+
+                        <% } if(dados.Status == 2){ %>
+                        <em>Status: In progress</em>
+
+                        <% } if(dados.Status == 3){ %>
+                        <em>Status: On hold</em>
+                        <% } %>
+                    </td>
+
+                </div>
+                <% }if(dados.Priority == 2){ %>
+                <div class="shadow-sm p-3 mb-2 table-warning rounded">
+                    <td>
+                        <strong><%= dados.Title %></strong><br>
+                        <%= dados.Description %><br><br>
+                        <% if(dados.Status == 1){ %>
+                        <em>Status: Not initialized</em>
+
+                        <% } if(dados.Status == 2){ %>
+                        <em>Status: In progress</em>
+
+                        <% } if(dados.Status == 3){ %>
+                        <em>Status: On hold</em>
+                        <% } %>
+
+                    </td>
+                </div>
+                <% }if(dados.Priority == 3){ %>
+                <div class="shadow-sm p-3 mb-2 table-danger rounded">
+                    <td>
+                        <strong><%= dados.Title %></strong><br>
+                        <%= dados.Description %><br><br>
+                        <% if(dados.Status == 1){ %>
+                        <em>Status: Not initialized</em>
+
+                        <% } if(dados.Status == 2){ %>
+                        <em>Status: In progress</em>
+
+                        <% } if(dados.Status == 3){ %>
+                        <em>Status: On hold</em>
+                        <% } %>
+                    </td>
+                </div>
+                <% } %>
+
+                <input type="submit" value="Save" class="btn btn-primary"></input>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+<%- include('partials/footer'); -%>

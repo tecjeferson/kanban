@@ -1,5 +1,12 @@
+//carregando todos os models
+require('./models/Task')
 const express = require('express')
 const app = express()
+const cookieParse = require('cookie-parser')
+const session = require('express-session')
+const flash = require('express-flash')
+const helpers = require('./helpers')
+
 const router = require("./routes/index")
 const path = require('path')
 const erroHandler = require('./handlers/errorHandler')
@@ -13,20 +20,39 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+
+//gerando um hash para o cookie
+app.use(cookieParse(process.env.SECRET))
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(flash())
+
+app.use((req, res, next) => {
+    res.locals.h = helpers;
+    res.locals.flashes = req.flash();
+    next();
+})
+
 app.use('/', router)
 app.use(erroHandler.notFound)
 
-
 //Connection to database
-mongoose.connect(process.env.DATABASE, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 mongoose.Promise = global.Promise
 mongoose.connection.on('error', (error) => {
     console.error("ERRO: " + error.message)
 })
 
 
-//carregando todos os models
-require('./models/Task')
+
+
+
 
 
 
