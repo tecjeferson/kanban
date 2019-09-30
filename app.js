@@ -15,6 +15,10 @@ const PORT = process.env.port || 3000
 require('dotenv').config({ path: 'variables.env' })
 
 
+const passport = require('passport')
+const localStrategy = require('passport-local').Strategy
+
+
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'))
@@ -33,11 +37,22 @@ app.use(session({
 }))
 app.use(flash())
 
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use((req, res, next) => {
     res.locals.h = helpers;
     res.locals.flashes = req.flash();
+    res.locals.user = req.user
     next();
 })
+
+
+//model processo de login
+const User = require('./models/User')
+passport.use(new localStrategy(User.authenticate()))
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
 app.use('/', router)
 app.use(erroHandler.notFound)

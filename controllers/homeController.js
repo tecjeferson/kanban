@@ -5,11 +5,18 @@ const Task = mongoose.model('Task')
 
 
 
+
+
 const index = async (req, res) => {
     const tasks = await Task.find();
-
-    res.render('home', { dados: tasks })
+    const user = req.user
+    res.render('home', {
+        dados: tasks,
+        user: user
+    })
+   
 }
+
 
 
 module.exports = {

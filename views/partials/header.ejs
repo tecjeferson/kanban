@@ -25,9 +25,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/task/add">Add Task</a>
                     </li>
-
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/login">Login</a>
+                    </li>
                 </ul>
+                <div class="col text-white text-right">
+                    <div>
+                        <% if(user) { %>
+                        Olá: <%= user.name %> <a href="/users/logout" class="btn btn-outline-light ml-2">Logout</a>
+                        <% } %>
+                    </div>
+                </div>
             </div>
         </nav>
 
